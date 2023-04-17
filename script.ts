@@ -27,13 +27,14 @@ function getMp3Files() {
   return mp3Files;
 }
 
-const playButton = document.getElementById('playButton') as HTMLButtonElement;
-
-playButton.addEventListener('click', () => {
-  const mp3Files = getMp3Files();
-  const randomIndex = Math.floor(Math.random() * mp3Files.length);
-  const randomFile = `far-archive/${mp3Files[randomIndex]}`;
-  audioSource.src = randomFile;
-  audioPlayer.load();
-  audioPlayer.play();
-});
+const playButton = document.getElementById('playButton');
+if (playButton) {
+  (playButton as HTMLButtonElement).addEventListener('click', () => {
+    const mp3Files = getMp3Files();
+    const randomIndex = Math.floor(Math.random() * mp3Files.length);
+    const randomFile = `far-archive/${mp3Files[randomIndex]}`;
+    audioSource.src = randomFile;
+    audioPlayer.load();
+    audioPlayer.play();
+  });
+}
