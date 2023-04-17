@@ -1,15 +1,5 @@
 const audioPlayer = document.getElementById('audioPlayer') as HTMLAudioElement;
 const audioSource = document.getElementById('audioSource') as HTMLSourceElement;
-const playButton = document.getElementById('playButton') as HTMLButtonElement;
-
-playButton.addEventListener('click', () => {
-  const mp3Files = getMp3Files();
-  const randomIndex = Math.floor(Math.random() * mp3Files.length);
-  const randomFile = `far-archive/${mp3Files[randomIndex]}`;
-  audioSource.src = randomFile;
-  audioPlayer.load();
-  audioPlayer.play();
-});
 
 const mp3Files: string[] = [];
 
@@ -38,3 +28,12 @@ function getMp3Files() {
 }
 
 const playButton = document.getElementById('playButton') as HTMLButtonElement;
+
+playButton.addEventListener('click', () => {
+  const mp3Files = getMp3Files();
+  const randomIndex = Math.floor(Math.random() * mp3Files.length);
+  const randomFile = `far-archive/${mp3Files[randomIndex]}`;
+  audioSource.src = randomFile;
+  audioPlayer.load();
+  audioPlayer.play();
+});
